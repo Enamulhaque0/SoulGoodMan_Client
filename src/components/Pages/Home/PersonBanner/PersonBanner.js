@@ -10,7 +10,7 @@ const PersonBanner = () => {
         </div>
         <div className="card flex-shrink-0 w-full max-w-sm  bg-base-100 py-20">
           <h1 className="text-7xl text-center font-bold">Soul <br /> 
-          GoodMan</h1>
+          Good Man</h1>
          
           <p className="text-center text-2xl">
           corporate lawyer
