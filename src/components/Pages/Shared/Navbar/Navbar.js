@@ -1,19 +1,27 @@
-import React, { useState } from "react";
+import React, { useContext, useState } from "react";
 import { Link, NavLink } from "react-router-dom";
-import Logo from "../../../../assest/logo.png"
-
+import Logo from "../../../../assest/logo.png";
+import { GrLogout } from "react-icons/gr";
+import { AuthContext } from "../../../Context/AuthProvider";
+import toast from "react-hot-toast";
 const Navbar = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const { user, logOut } = useContext(AuthContext);
+  const handleLogout = () => {
+    logOut();
+    toast.error("You have been logged out");
+  };
 
   return (
     <div className="px-4 py-5 mx-auto sm:max-w-xl md:max-w-full lg:max-w-screen-xl md:px-24 lg:px-8">
       <div className="relative flex items-center justify-between">
-        <Link to="/"
+        <Link
+          to="/"
           aria-label="Company"
           title="Company"
           className="inline-flex items-center"
         >
-        <img src={Logo} alt=""  />
+          <img src={Logo} alt="" />
           <span className="ml-2 text-xl font-bold tracking-wide text-gray-800 uppercase">
             Company
           </span>
@@ -39,16 +47,34 @@ const Navbar = () => {
               Services
             </NavLink>
           </li>
-          <li>
-            <NavLink
-              to="/reviews-add"
-              aria-label="Product pricing"
-              title="Product pricing"
-              className="font-medium tracking-wide text-gray-700 transition-colors duration-200 hover:text-deep-purple-accent-400"
-            >
-              Add Review
-            </NavLink>
-          </li>
+          <>
+            {user?.uid && (
+              <li>
+                <NavLink
+                  to="/reviews"
+                  aria-label="Product pricing"
+                  title="Product pricing"
+                  className="font-medium tracking-wide text-gray-700 transition-colors duration-200 hover:text-deep-purple-accent-400"
+                >
+                  My review
+                </NavLink>
+              </li>
+            )}
+          </>
+          <>
+            {user?.uid && (
+              <li>
+                <NavLink
+                  to="/service-add"
+                  aria-label="Product pricing"
+                  title="Product pricing"
+                  className="font-medium tracking-wide text-gray-700 transition-colors duration-200 hover:text-deep-purple-accent-400"
+                >
+                  Add service
+                </NavLink>
+              </li>
+            )}
+          </>
           <li>
             <NavLink
               to="/blogs"
@@ -59,6 +85,13 @@ const Navbar = () => {
               Blogs
             </NavLink>
           </li>
+          <>
+            {user?.uid && (
+              <li className="cursor-pointer">
+                <GrLogout onClick={handleLogout}></GrLogout>
+              </li>
+            )}
+          </>
         </ul>
         <div className="lg:hidden">
           <button
@@ -93,7 +126,7 @@ const Navbar = () => {
                       title="Company"
                       className="inline-flex items-center"
                     >
-                     <img src={Logo} alt="" />
+                      <img src={Logo} alt="" />
                       <span className="ml-2 text-xl font-bold tracking-wide text-gray-800 uppercase">
                         Company
                       </span>
@@ -137,16 +170,34 @@ const Navbar = () => {
                         Services
                       </Link>
                     </li>
-                    <li>
-                      <Link
-                        to="/reviews"
-                        aria-label="Product pricing"
-                        title="Product pricing"
-                        className="font-medium tracking-wide text-gray-700 transition-colors duration-200 hover:text-deep-purple-accent-400"
-                      >
-                        Reviews
-                      </Link>
-                    </li>
+                    <>
+                      {user?.uid && (
+                        <li>
+                          <NavLink
+                            to="/reviews"
+                            aria-label="Product pricing"
+                            title="Product pricing"
+                            className="font-medium tracking-wide text-gray-700 transition-colors duration-200 hover:text-deep-purple-accent-400"
+                          >
+                            My review
+                          </NavLink>
+                        </li>
+                      )}
+                    </>
+                    <>
+                      {user?.uid && (
+                        <li>
+                          <NavLink
+                            to="/service-add"
+                            aria-label="Product pricing"
+                            title="Product pricing"
+                            className="font-medium tracking-wide text-gray-700 transition-colors duration-200 hover:text-deep-purple-accent-400"
+                          >
+                            Add service
+                          </NavLink>
+                        </li>
+                      )}
+                    </>
                     <li>
                       <Link
                         to="/blogs"
@@ -157,6 +208,13 @@ const Navbar = () => {
                         Blogs
                       </Link>
                     </li>
+                    <>
+                      {user?.uid && (
+                        <li className="flex justify-center items-center cursor-pointer">
+                          <GrLogout onClick={handleLogout}></GrLogout>
+                        </li>
+                      )}
+                    </>
                   </ul>
                 </nav>
               </div>

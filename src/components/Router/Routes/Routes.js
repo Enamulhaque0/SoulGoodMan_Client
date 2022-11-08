@@ -4,9 +4,10 @@ import Login from "../../Pages/Login/Login/Login";
 import Register from "../../Pages/Login//Register/Register";
 import NotFound from "../../Pages/NotFound/NotFound";
 import Services from "../../Pages/Services/Services";
-import ReviewAdd from "../../Pages/Reviews/ReviewAdd";
+import MyReviews from "../../Pages/Reviews/MyReviews";
 import Blogs from "../../Pages/Blogs/Blogs";
 import ServiceAdd from "../../Pages/Services/ServiceAdd"
+import PrivateRoutes from "../PrivateRoute/PrivateRoutes"
 
 
 const { createBrowserRouter } = require("react-router-dom");
@@ -35,11 +36,11 @@ const router = createBrowserRouter([
       },
       {
         path: "service-add",
-        element: <ServiceAdd></ServiceAdd>,
+        element: <PrivateRoutes><ServiceAdd></ServiceAdd></PrivateRoutes>,
       },
       {
-        path: "reviews-add",
-        element: <ReviewAdd></ReviewAdd>,
+        path: "reviews",
+        element: <PrivateRoutes><MyReviews></MyReviews></PrivateRoutes>,
       },
       
       {
