@@ -1,10 +1,13 @@
 import React from 'react';
+import ReviewCard from './ReviewCard';
 
 const ReviewAdd = () => {
     return (
-        <div>
-            <h1>Review add</h1>
-        </div>
+        <>
+        
+        
+        <ReviewCard></ReviewCard>
+        </>
     );
 };
 
