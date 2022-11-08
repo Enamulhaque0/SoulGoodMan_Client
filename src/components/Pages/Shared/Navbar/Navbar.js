@@ -13,7 +13,7 @@ const Navbar = () => {
           title="Company"
           className="inline-flex items-center"
         >
-        <img src={Logo} alt="" srcset="" />
+        <img src={Logo} alt=""  />
           <span className="ml-2 text-xl font-bold tracking-wide text-gray-800 uppercase">
             Company
           </span>
@@ -41,12 +41,12 @@ const Navbar = () => {
           </li>
           <li>
             <NavLink
-              to="/reviews"
+              to="/reviews-add"
               aria-label="Product pricing"
               title="Product pricing"
               className="font-medium tracking-wide text-gray-700 transition-colors duration-200 hover:text-deep-purple-accent-400"
             >
-              Reviews
+              Add Review
             </NavLink>
           </li>
           <li>
