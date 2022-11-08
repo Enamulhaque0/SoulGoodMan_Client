@@ -1,11 +1,12 @@
 import React from 'react';
+import Logo from "../../../../assest/logo.png";
 
 const Footer = () => {
     return (
         <footer className="flex flex-col items-center justify-between p-6 bg-white dark:bg-gray-900 sm:flex-row">
-        <a href="#" className="text-xl font-bold text-gray-600 transition-colors duration-300 dark:text-white hover:text-gray-700 dark:hover:text-gray-300">Brand</a>
+       <img src={Logo} alt=""  />
     
-        <p className="text-sm text-gray-600 dark:text-gray-300">© Copyright 2021. All Rights Reserved.</p>
+        <p className="text-sm text-gray-600 dark:text-gray-300">© Copyright 2022. All Rights Reserved.</p>
     
         <div className="flex -mx-2">
             <a href="#" className="mx-2 text-gray-600 transition-colors duration-300 dark:text-gray-300 hover:text-blue-500 dark:hover:text-blue-400" aria-label="Reddit">
