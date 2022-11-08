@@ -1,4 +1,5 @@
-import React, { useContext } from "react";
+import React, { useContext, useEffect } from "react";
+import toast from "react-hot-toast";
 import { AuthContext } from "../../Context/AuthProvider";
 
 const ServiceAdd = () => {
@@ -11,13 +12,38 @@ const ServiceAdd = () => {
     const Img = form.img.value;
     const Price = form.price.value;
     const Description = form.Description.value;
-    const Services = {
+    const Service = {
       name: Name,
+      email: user?.email,
       img: Img,
       price: Price,
       description: Description,
     };
-    console.log(Services);
+    
+
+    fetch("http://localhost:5000/services",{
+      method:"POST",
+      headers:{
+
+        "content-type": "application/json"
+      },
+      body: JSON.stringify(Service)
+      
+      
+    })
+    .then((res) => res.json())
+      .then((data) => {
+        console.log(data);
+        if (data.acknowledged) {
+          toast.success("Service Added");
+          form.reset();
+        }
+      })
+      .catch((er) => {});
+
+
+
+
   };
   return (
     <section className="text-gray-600 body-font relative">

@@ -4,7 +4,7 @@ const IconBanner = () => {
     return (
         <section className="m-4 md:m-8">
 
-			<h1 className='text-4xl my-24 '>Why Engage With Me For Your Legal Services?</h1>
+			<h1 className='text-4xl my-24 text-center font-bold'>Why Engage With Me For Your Legal Services?</h1>
 	
 	<div className="container mx-auto grid justify-center gap-4 sm:grid-cols-2 lg:grid-cols-3 ">
 		<div className="flex flex-col items-center p-4">

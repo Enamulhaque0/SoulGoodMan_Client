@@ -1,29 +1,33 @@
-import React from 'react';
-import soulGoodMan from "../../../../assest/soulGoodMan.jpg"
+import React from "react";
+import soulGoodMan from "../../../../assest/soulGoodMan.jpg";
 
 const PersonBanner = () => {
-    return (
-        <div className="hero w-full my-20">
+  return (
+    <div className="hero w-full">
       <div className="hero-content grid gap-20 md:grid-cols-2 flex-col lg:flex-row">
-        <div className="text-center lg:text-left">
-          <img className="w-3/4" src={soulGoodMan} alt="" />
+        <div className="">
+          <img className="" src={soulGoodMan} alt="" />
         </div>
         <div className="card flex-shrink-0 w-full max-w-sm  bg-base-100 py-20">
-          <h1 className="text-7xl text-center font-bold">Soul <br /> 
-          Good Man</h1>
-         
-          <p className="text-center text-2xl">
-          corporate lawyer
-           
+          <h1 className="text-6xl text-center font-extrabold my-2 p-1">
+            <span className="bg-green-600">So</span>ul <br />
+            Good M<span className="bg-green-600 ">an</span>
+          </h1>
+
+          <p className="text-center text-3xl italic my-5 font-semibold">corporate lawyer</p>
+
+          <p className="font-light">
+            I have a loyalty that runs in my bloodstream, when I lock into
+            someone or something, you can't get me away from it because commit
+            that thoroughly.
           </p>
-          <p className='text-green-800'>
-          I have a loyalty that runs in my bloodstream, when I lock into someone 
-          or something, you can't get me away from it because commit that thoroughly.
-          </p>
+          <button className="btn-ghost w-24 btn-outline btn-secondary my-6 py-1 px-1 italic ">
+            Contact Me
+          </button>
         </div>
       </div>
     </div>
-    );
+  );
 };
 
 export default PersonBanner;
