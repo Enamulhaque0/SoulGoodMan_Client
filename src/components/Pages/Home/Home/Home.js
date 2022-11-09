@@ -11,7 +11,7 @@ const Home = () => {
         
         
         
-        <div className='my-16'>
+        <div className='my-24'>
            <PersonBanner></PersonBanner>
 
             
