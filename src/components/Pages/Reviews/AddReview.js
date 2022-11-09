@@ -1,12 +1,46 @@
-import React from "react";
+import React, { useContext } from "react";
+import toast from "react-hot-toast";
+import { AuthContext } from "../../Context/AuthProvider";
 
-const AddReview = () => {
+const AddReview = ({ service }) => {
+  const { user } = useContext(AuthContext);
+
   const handleReview = (event) => {
     event.preventDefault();
     const form = event.target;
 
-    const Description = form.Description.value;
-    console.log(Description);
+    const reviewText = form.Review.value;
+    const userInfo = {
+      name: user?.displayName,
+      email: user?.email,
+      photo: user?.photoURL,
+    };
+
+    const review = {
+      userInfo: userInfo,
+      name:service.name,
+      reviewText: reviewText,
+    };
+
+    fetch("http://localhost:5000/review", {
+      method:"POST",
+      headers:{
+        "content-type": "application/json"
+      },
+      body:JSON.stringify(review)
+
+    })
+    .then((res) => res.json())
+      .then((data) => {
+        console.log(data);
+        if (data.acknowledged) {
+          toast.success("Review Added");
+          form.reset();
+        }
+      })
+      .catch((er) => {});
+
+    
   };
   return (
     <>
@@ -93,7 +127,7 @@ const AddReview = () => {
           <form onSubmit={handleReview}>
             <div className="flex flex-col w-full">
               <textarea
-                name="Description"
+                name="Review"
                 rows="3"
                 placeholder="Add a Review"
                 className="p-4 rounded-md resize-none dark:text-gray-100 dark:bg-gray-900"
