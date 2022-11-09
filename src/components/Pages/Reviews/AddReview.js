@@ -17,9 +17,11 @@ const AddReview = ({ service }) => {
     };
 
     const review = {
+      email:userInfo.email,
       userInfo: userInfo,
       name:service.name,
       reviewText: reviewText,
+      img:service.img
     };
 
     fetch("http://localhost:5000/review", {
