@@ -3,10 +3,10 @@ import Logo from "../../../../assest/logo.png";
 
 const Footer = () => {
     return (
-        <footer className="flex flex-col items-center justify-between p-6 bg-white dark:bg-gray-900 sm:flex-row">
+        <footer className="flex flex-col items-center justify-between p-6 bg-green-400   sm:flex-row">
        <img src={Logo} alt=""  />
     
-        <p className="text-sm text-gray-600 dark:text-gray-300">© Copyright 2022. All Rights Reserved.</p>
+        <p className="text-sm text-black dark:text-gray-300">© Copyright 2022. All Rights Reserved.</p>
     
         <div className="flex -mx-2">
             <a href="#" className="mx-2 text-gray-600 transition-colors duration-300 dark:text-gray-300 hover:text-blue-500 dark:hover:text-blue-400" aria-label="Reddit">

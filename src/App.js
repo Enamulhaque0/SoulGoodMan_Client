@@ -5,7 +5,7 @@ import router from './components/Router/Routes/Routes';
 
 function App() {
   return (
-    <div className='max-w-screen-xl mx-auto'>
+    <div className=''>
       <Toaster
   position="top-center"
   reverseOrder={false}

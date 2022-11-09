@@ -14,33 +14,45 @@ const MyReviews = () => {
       .then((data) => setReviews(data));
   }, [reviews, user?.email]);
 
-
-  const handleDelete = _id =>{
-    const proceed = window.confirm('Are you sure, you want to delete this review');
-    if(proceed){
-        fetch(`http://localhost:5000/reviews/${_id}`, {
-            method: 'DELETE',
-           
-        })
-        .then(res => res.json())
-        .then(data => {
-           
-            if (data.deletedCount > 0){
-                toast.success('deleted successfully');
-                const remaining = reviews.filter(rws => rws._id !== _id);
-                setReviews(remaining);
-            }
-        })
+  const handleDelete = (_id) => {
+    const proceed = window.confirm(
+      "Are you sure, you want to delete this review"
+    );
+    if (proceed) {
+      fetch(`http://localhost:5000/reviews/${_id}`, {
+        method: "DELETE",
+      })
+        .then((res) => res.json())
+        .then((data) => {
+          if (data.deletedCount > 0) {
+            toast.success("deleted successfully");
+            const remaining = reviews.filter((rws) => rws._id !== _id);
+            setReviews(remaining);
+          }
+        });
     }
-}
+  };
 
-    
   return (
     <>
-      <div className="grid md:grid-cols-3 gap-x-6 lg:gap-x-12 my-24">
-        {reviews.map((review) => (
-          <ReviewCard review={review} key={review._id} handleDelete={handleDelete}></ReviewCard>
-        ))}
+      <div className="flex justify-center items-center mx-6">
+        {reviews && (
+          <div className="grid md:grid-cols-3 gap-x-6 lg:gap-x-12 my-24">
+            {reviews.map((review) => (
+              <ReviewCard
+                review={review}
+                key={review._id}
+                handleDelete={handleDelete}
+              ></ReviewCard>
+            ))}
+          </div>
+        )}
+        {
+
+!reviews.length && <div className="flex justify-center items-center my-24 h-96">
+   <h1 className="text-6xl font-bold text-fuchsia-700">No Reviews Were Added</h1>
+</div>
+}
       </div>
     </>
   );

@@ -129,6 +129,7 @@ const AddReview = ({ service }) => {
           <form onSubmit={handleReview}>
             <div className="flex flex-col w-full">
               <textarea
+              required
                 name="Review"
                 rows="3"
                 placeholder="Add a Review"
@@ -136,7 +137,7 @@ const AddReview = ({ service }) => {
               ></textarea>
               <button
                 type="submit"
-                className="py-4 my-8 font-semibold rounded-md dark:text-gray-900 dark:bg-violet-400"
+                className="py-4 my-8 font-semibold rounded-md dark:text-gray-900 dark:bg-green-400"
               >
                 Leave feedback
               </button>

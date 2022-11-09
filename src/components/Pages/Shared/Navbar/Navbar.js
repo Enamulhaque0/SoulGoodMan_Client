@@ -1,6 +1,6 @@
 import React, { useContext, useState } from "react";
 import { Link, NavLink } from "react-router-dom";
-import Logo from "../../../../assest/logo.png";
+import Logo from "../../../../assest/legal.png";
 import { GrLogout } from "react-icons/gr";
 import { AuthContext } from "../../../Context/AuthProvider";
 import toast from "react-hot-toast";
@@ -32,7 +32,7 @@ const Navbar = () => {
               title="Our product"
               className={({ isActive }) =>
                 isActive
-                  ? "font-medium tracking-wide text-blue-700 transition-colors duration-200 hover:text-deep-purple-accent-400"
+                  ? "font-medium tracking-wide text-green-600 transition-colors duration-200 hover:text-deep-purple-accent-400"
                   : "font-medium tracking-wide text-gray-700 transition-colors duration-200 hover:text-deep-purple-accent-400"
               }
             >
@@ -46,7 +46,7 @@ const Navbar = () => {
               title="Our product"
               className={({ isActive }) =>
                 isActive
-                  ? "font-medium tracking-wide text-blue-700 transition-colors duration-200 hover:text-deep-purple-accent-400"
+                  ? "font-medium tracking-wide text-green-600 transition-colors duration-200 hover:text-deep-purple-accent-400"
                   : "font-medium tracking-wide text-gray-700 transition-colors duration-200 hover:text-deep-purple-accent-400"
               }
             >
@@ -62,7 +62,7 @@ const Navbar = () => {
                   title="Product pricing"
                   className={({ isActive }) =>
                 isActive
-                  ? "font-medium tracking-wide text-blue-700 transition-colors duration-200 hover:text-deep-purple-accent-400"
+                  ? "font-medium tracking-wide text-green-600 transition-colors duration-200 hover:text-deep-purple-accent-400"
                   : "font-medium tracking-wide text-gray-700 transition-colors duration-200 hover:text-deep-purple-accent-400"
               }
                 >
@@ -80,7 +80,7 @@ const Navbar = () => {
                   title="Product pricing"
                   className={({ isActive }) =>
                 isActive
-                  ? "font-medium tracking-wide text-blue-700 transition-colors duration-200 hover:text-deep-purple-accent-400"
+                  ? "font-medium tracking-wide text-green-600 transition-colors duration-200 hover:text-deep-purple-accent-400"
                   : "font-medium tracking-wide text-gray-700 transition-colors duration-200 hover:text-deep-purple-accent-400"
               }
                 >
@@ -96,7 +96,7 @@ const Navbar = () => {
               title="About us"
               className={({ isActive }) =>
                 isActive
-                  ? "font-medium tracking-wide text-blue-700 transition-colors duration-200 hover:text-deep-purple-accent-400"
+                  ? "font-medium tracking-wide text-green-600 transition-colors duration-200 hover:text-deep-purple-accent-400"
                   : "font-medium tracking-wide text-gray-700 transition-colors duration-200 hover:text-deep-purple-accent-400"
               }
             >
@@ -173,7 +173,7 @@ const Navbar = () => {
                         title="Our product"
                         className={({ isActive }) =>
                 isActive
-                  ? "font-medium tracking-wide text-blue-700 transition-colors duration-200 hover:text-deep-purple-accent-400"
+                  ? "font-medium tracking-wide text-green-600 transition-colors duration-200 hover:text-deep-purple-accent-400"
                   : "font-medium tracking-wide text-gray-700 transition-colors duration-200 hover:text-deep-purple-accent-400"
               }
                       >
@@ -187,7 +187,7 @@ const Navbar = () => {
                         title="Our product"
                         className={({ isActive }) =>
                 isActive
-                  ? "font-medium tracking-wide text-blue-700 transition-colors duration-200 hover:text-deep-purple-accent-400"
+                  ? "font-medium tracking-wide text-green-600 transition-colors duration-200 hover:text-deep-purple-accent-400"
                   : "font-medium tracking-wide text-gray-700 transition-colors duration-200 hover:text-deep-purple-accent-400"
               }
                       >
@@ -203,7 +203,7 @@ const Navbar = () => {
                             title="Product pricing"
                             className={({ isActive }) =>
                 isActive
-                  ? "font-medium tracking-wide text-blue-700 transition-colors duration-200 hover:text-deep-purple-accent-400"
+                  ? "font-medium tracking-wide text-green-600 transition-colors duration-200 hover:text-deep-purple-accent-400"
                   : "font-medium tracking-wide text-gray-700 transition-colors duration-200 hover:text-deep-purple-accent-400"
               }
                           >
@@ -221,7 +221,7 @@ const Navbar = () => {
                             title="Product pricing"
                             className={({ isActive }) =>
                 isActive
-                  ? "font-medium tracking-wide text-blue-700 transition-colors duration-200 hover:text-deep-purple-accent-400"
+                  ? "font-medium tracking-wide text-green-600 transition-colors duration-200 hover:text-deep-purple-accent-400"
                   : "font-medium tracking-wide text-gray-700 transition-colors duration-200 hover:text-deep-purple-accent-400"
               }
                           >
@@ -237,7 +237,7 @@ const Navbar = () => {
                         title="About us"
                         className={({ isActive }) =>
                         isActive
-                          ? "font-medium tracking-wide text-blue-700 transition-colors duration-200 hover:text-deep-purple-accent-400"
+                          ? "font-medium tracking-wide text-green-600 transition-colors duration-200 hover:text-deep-purple-accent-400"
                           : "font-medium tracking-wide text-gray-700 transition-colors duration-200 hover:text-deep-purple-accent-400"
                       }
                       >
