@@ -6,7 +6,6 @@ import PersonBanner from '../PersonBanner/PersonBanner';
 
 const Home = () => {
     const Services= useLoaderData()
-    console.log(Services);
     return (
         <>
         

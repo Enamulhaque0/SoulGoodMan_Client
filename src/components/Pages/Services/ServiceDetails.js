@@ -1,15 +1,25 @@
-import React, { useContext } from "react";
+import React, { useContext, useEffect, useState } from "react";
 import AddReview from "../Reviews/AddReview";
 import ReviewDetailsCard from "../Reviews/ReviewDetailsCard";
 import ServiceDetailsCard from "./ServiceDetailsCard";
 import { AuthContext } from "../../Context/AuthProvider";
-import { Link } from "react-router-dom";
+import { Link, useLoaderData } from "react-router-dom";
+
 
 const ServiceDetails = () => {
   const { user } = useContext(AuthContext);
+  const service= useLoaderData()
+  console.log(service)
+  
+
+  
+
+  ;
   return (
     <>
-      <ServiceDetailsCard></ServiceDetailsCard>
+      <div className="flex justify-center my-12">
+      <ServiceDetailsCard service={service} ></ServiceDetailsCard>
+      </div>
 
       <ReviewDetailsCard></ReviewDetailsCard>
 
