@@ -24,7 +24,7 @@ const AddReview = ({ service }) => {
       img:service.img
     };
 
-    fetch("http://localhost:5000/review", {
+    fetch("https://soul-good-man-server.vercel.app/review", {
       method:"POST",
       headers:{
         "content-type": "application/json"

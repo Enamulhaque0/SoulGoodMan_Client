@@ -1,4 +1,5 @@
 import React, { useContext, useEffect } from "react";
+import { Helmet } from "react-helmet";
 import toast from "react-hot-toast";
 import { AuthContext } from "../../Context/AuthProvider";
 
@@ -21,7 +22,7 @@ const ServiceAdd = () => {
     };
     
 
-    fetch("http://localhost:5000/services",{
+    fetch("https://soul-good-man-server.vercel.app/services",{
       method:"POST",
       headers:{
 
@@ -47,6 +48,10 @@ const ServiceAdd = () => {
   };
   return (
     <section className="text-gray-600 body-font relative">
+       <Helmet>
+
+<title>Add Service</title>
+</Helmet>
       <div className="container px-5 py-24 mx-auto">
         <form onSubmit={handleAddService} className="lg:w-1/2 md:w-2/3 mx-auto">
           <div className="flex flex-wrap -m-2">
@@ -56,10 +61,12 @@ const ServiceAdd = () => {
                   Name
                 </label>
                 <input
+                
                   type="text"
                   id="name"
                   name="name"
                   className="w-full bg-gray-100 bg-opacity-50 rounded border border-gray-300 focus:border-indigo-500 focus:bg-white focus:ring-2 focus:ring-indigo-200 text-base outline-none text-gray-700 py-1 px-3 leading-8 transition-colors duration-200 ease-in-out"
+                  required
                 />
               </div>
             </div>
@@ -72,6 +79,7 @@ const ServiceAdd = () => {
                   type="text"
                   name="img"
                   className="w-full bg-gray-100 bg-opacity-50 rounded border border-gray-300 focus:border-indigo-500 focus:bg-white focus:ring-2 focus:ring-indigo-200 text-base outline-none text-gray-700 py-1 px-3 leading-8 transition-colors duration-200 ease-in-out"
+                  required
                 />
               </div>
             </div>
@@ -83,6 +91,7 @@ const ServiceAdd = () => {
                 <input
                   name="price"
                   className="w-full bg-gray-100 bg-opacity-50 rounded border border-gray-300 focus:border-indigo-500 focus:bg-white focus:ring-2 focus:ring-indigo-200 text-base outline-none text-gray-700 py-1 px-3 leading-8 transition-colors duration-200 ease-in-out"
+                  required
                 />
               </div>
             </div>
@@ -113,6 +122,7 @@ const ServiceAdd = () => {
                   id="message"
                   name="Description"
                   className="w-full bg-gray-100 bg-opacity-50 rounded border border-gray-300 focus:border-indigo-500 focus:bg-white focus:ring-2 focus:ring-indigo-200 h-32 text-base outline-none text-gray-700 py-1 px-3 resize-none leading-6 transition-colors duration-200 ease-in-out"
+                  required
                 ></textarea>
               </div>
             </div>

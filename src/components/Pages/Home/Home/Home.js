@@ -1,4 +1,5 @@
 import React from 'react';
+import { Helmet } from 'react-helmet';
 import { Link, useLoaderData } from 'react-router-dom';
 import ServiceCard from '../../Services/ServiceCard';
 import IconBanner from '../IconBanner/IconBanner';
@@ -10,7 +11,10 @@ const Home = () => {
     return (
         <>
         
-        
+        <Helmet>
+
+            <title>Soul Good Man</title>
+        </Helmet>
         
         <div className='my-24 '>
            <PersonBanner></PersonBanner>

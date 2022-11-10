@@ -28,7 +28,7 @@ const Modal = ({modalData,setModalData,handleData,handleUpdate}) => {
                   defaultValue={reviewText}
                 ></textarea>
               </div>
-    <button onClick={()=>handleUpdate(_id)} className="btn btn-sm">Submit</button>
+    <button onClick={()=>handleUpdate(_id)}   className="btn btn-sm cursor-pointer">Submit</button>
   </div>
 </div>
         </div>

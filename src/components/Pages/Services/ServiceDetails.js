@@ -4,6 +4,7 @@ import ReviewDetailsCard from "../Reviews/ReviewDetailsCard";
 import ServiceDetailsCard from "./ServiceDetailsCard";
 import { AuthContext } from "../../Context/AuthProvider";
 import { Link, useLoaderData } from "react-router-dom";
+import { Helmet } from "react-helmet";
 
 const ServiceDetails = () => {
   const { user } = useContext(AuthContext);
@@ -13,13 +14,17 @@ const ServiceDetails = () => {
   
 
   useEffect(() => {
-    fetch(`http://localhost:5000/review?name=${service.name}`)
+    fetch(`https://soul-good-man-server.vercel.app/review?name=${service.name}`)
       .then((res) => res.json())
       .then((data) => setReviews(data));
   }, [service.name,reviews]);
 
   return (
     <>
+     <Helmet>
+
+<title>Service</title>
+</Helmet>
       <div className="flex justify-center my-12">
         <ServiceDetailsCard service={service}></ServiceDetailsCard>
       </div>

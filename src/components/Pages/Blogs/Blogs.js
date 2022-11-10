@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import { Helmet } from "react-helmet";
 const Item = ({ title, children }) => {
   const [isOpen, setIsOpen] = useState(false);
 
@@ -42,6 +43,10 @@ const Item = ({ title, children }) => {
 const Blogs = () => {
   return (
     <div className="my-24 px-4 py-16 mx-auto sm:max-w-xl md:max-w-full lg:max-w-screen-xl md:px-24 lg:px-8 lg:py-20">
+       <Helmet>
+
+<title>Blogs</title>
+</Helmet>
       <div className="max-w-xl sm:mx-auto lg:max-w-2xl">
         <div className="space-y-4">
           <Item title="Difference between SQL and NoSQL">

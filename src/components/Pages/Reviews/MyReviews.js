@@ -1,9 +1,13 @@
 import React, { useContext, useEffect, useState } from "react";
+import { Helmet } from "react-helmet";
 import toast from "react-hot-toast";
 import { AuthContext } from "../../Context/AuthProvider";
 import ReviewCard from "./ReviewCard";
 
 const MyReviews = () => {
+
+
+ 
   const { user } = useContext(AuthContext);
 
   const [data, setData] = useState(null);
@@ -19,7 +23,7 @@ const MyReviews = () => {
   };
 
   useEffect(() => {
-    fetch(`http://localhost:5000/reviews?email=${user?.email}`)
+    fetch(`https://soul-good-man-server.vercel.app/reviews?email=${user?.email}`)
       .then((res) => res.json())
       .then((data) => setReviews(data));
   }, [user?.email,refresh]);
@@ -29,7 +33,7 @@ const MyReviews = () => {
       "Are you sure, you want to delete this review"
     );
     if (proceed) {
-      fetch(`http://localhost:5000/reviews/${_id}`, {
+      fetch(`https://soul-good-man-server.vercel.app/reviews/${_id}`, {
         method: "DELETE",
       })
         .then((res) => res.json())
@@ -44,7 +48,7 @@ const MyReviews = () => {
   };
 
   const handleUpdate = (id) => {
-    fetch(`http://localhost:5000/reviews/${id}`, {
+    fetch(`https://soul-good-man-server.vercel.app/reviews/${id}`, {
       method: "PATCH",
       headers: {
         "content-type": "application/json",
@@ -61,6 +65,11 @@ const MyReviews = () => {
 
   return (
     <>
+
+<Helmet>
+
+<title>My-Reviews</title>
+</Helmet>
       <div className="flex justify-center items-center mx-6">
         {reviews && (
           <div className="grid md:grid-cols-3 gap-x-6 lg:gap-x-12 my-24">
