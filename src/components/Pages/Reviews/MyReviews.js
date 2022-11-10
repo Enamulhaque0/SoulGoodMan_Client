@@ -6,13 +6,23 @@ import ReviewCard from "./ReviewCard";
 const MyReviews = () => {
   const { user } = useContext(AuthContext);
 
+  const [data, setData] = useState(null);
+
   const [reviews, setReviews] = useState([]);
+  const [refresh,setRefresh]=useState(false)
+
+  const handleData = (e) => {
+    e.preventDefault();
+
+    const reviewText = e.target.value;
+    setData(reviewText);
+  };
 
   useEffect(() => {
     fetch(`http://localhost:5000/reviews?email=${user?.email}`)
       .then((res) => res.json())
       .then((data) => setReviews(data));
-  }, [user?.email]);
+  }, [user?.email,refresh]);
 
   const handleDelete = (_id) => {
     const proceed = window.confirm(
@@ -33,6 +43,22 @@ const MyReviews = () => {
     }
   };
 
+  const handleUpdate = (id) => {
+    fetch(`http://localhost:5000/reviews/${id}`, {
+      method: "PATCH",
+      headers: {
+        "content-type": "application/json",
+      },
+      body: JSON.stringify({ reviewText: data }),
+    })
+      .then((res) => res.json())
+      .then((data) => {
+        if (data.modifiedCount) {
+          setRefresh(!refresh)
+        }
+      });
+  };
+
   return (
     <>
       <div className="flex justify-center items-center mx-6">
@@ -43,16 +69,19 @@ const MyReviews = () => {
                 review={review}
                 key={review._id}
                 handleDelete={handleDelete}
+                handleData={handleData}
+                handleUpdate={handleUpdate}
               ></ReviewCard>
             ))}
           </div>
         )}
-        {
-
-!reviews.length && <div className="flex justify-center items-center my-24 h-96">
-   <h1 className="text-6xl font-bold text-fuchsia-700">No Reviews Were Added</h1>
-</div>
-}
+        {!reviews.length && (
+          <div className="flex justify-center items-center my-24 h-96">
+            <h1 className="text-6xl font-bold text-fuchsia-700">
+              No Reviews Were Added
+            </h1>
+          </div>
+        )}
       </div>
     </>
   );
