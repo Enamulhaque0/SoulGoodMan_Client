@@ -8,7 +8,7 @@ const MyReviews = () => {
 
 
  
-  const { user } = useContext(AuthContext);
+  const { user,logOut } = useContext(AuthContext);
 
   const [data, setData] = useState(null);
 
@@ -23,10 +23,20 @@ const MyReviews = () => {
   };
 
   useEffect(() => {
-    fetch(`https://soul-good-man-server.vercel.app/reviews?email=${user?.email}`)
-      .then((res) => res.json())
+    fetch(`https://soul-good-man-server.vercel.app/reviews?email=${user?.email}`,{
+      headers: {
+
+        authorization: `Bearer ${localStorage.getItem('genius-token')}`
+    }
+    })
+    .then((res) => {
+      if (res.status === 401 || res.status === 403) {
+          return logOut();
+      }
+      return res.json();
+  })
       .then((data) => setReviews(data));
-  }, [user?.email,refresh]);
+  }, [user?.email,refresh,logOut]);
 
   const handleDelete = (_id) => {
     const proceed = window.confirm(
@@ -52,6 +62,7 @@ const MyReviews = () => {
       method: "PATCH",
       headers: {
         "content-type": "application/json",
+        
       },
       body: JSON.stringify({ reviewText: data }),
     })

@@ -4,7 +4,10 @@ import { useLoaderData } from 'react-router-dom';
 import ServiceCard from './ServiceCard';
 
 const Services = () => {
-    const Services= useLoaderData()
+    const  allServices= useLoaderData()
+    const Services = [...allServices].sort((a, b) => b.sort - a.sort);
+    console.log(Services);
+  
 
     return (
         

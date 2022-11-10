@@ -1,10 +1,11 @@
-import React, { useContext, useEffect } from "react";
+import React, { useContext, useState } from "react";
 import { Helmet } from "react-helmet";
 import toast from "react-hot-toast";
 import { AuthContext } from "../../Context/AuthProvider";
 
 const ServiceAdd = () => {
   const { user } = useContext(AuthContext);
+ 
 
   const handleAddService = (event) => {
     event.preventDefault();
@@ -13,12 +14,17 @@ const ServiceAdd = () => {
     const Img = form.img.value;
     const Price = form.price.value;
     const Description = form.Description.value;
+    
+    
+    
     const Service = {
       name: Name,
       email: user?.email,
       img: Img,
       price: Price,
       description: Description,
+      
+     
     };
     
 

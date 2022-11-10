@@ -1,5 +1,6 @@
 import { GoogleAuthProvider } from "firebase/auth";
 import React, { useContext, useState } from "react";
+import { Helmet } from "react-helmet";
 import toast from "react-hot-toast";
 import { Link, useLocation, useNavigate } from "react-router-dom";
 import { AuthContext } from "../../../Context/AuthProvider";
@@ -61,6 +62,10 @@ const Register = () => {
   };
   return (
     <section className="bg-gray-50 min-h-screen flex items-center justify-center">
+       <Helmet>
+
+<title>Register</title>
+</Helmet>
       <div className="bg-gray-100 flex rounded-2xl shadow-lg max-w-3xl p-5 items-center">
         <div className=" px-8 md:px-16">
           <h2 className="font-bold text-2xl text-[#002D74]">Register</h2>

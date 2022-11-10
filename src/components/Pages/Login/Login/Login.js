@@ -1,5 +1,6 @@
 import { GoogleAuthProvider } from 'firebase/auth';
 import React, { useContext, useState } from 'react';
+import { Helmet } from 'react-helmet';
 import toast from 'react-hot-toast';
 import { Link, useLocation, useNavigate } from 'react-router-dom';
 import { AuthContext } from '../../../Context/AuthProvider';
@@ -34,12 +35,22 @@ const Login = () => {
       .then((result) => {
         const user = result.user;
         
-        navigate(from, {replace: true});
-        form.reset();
-        toast.success('successfully login')
-      
-        
-        
+        const currentUser = {
+          email: user.email,
+        };
+
+        fetch("https://soul-good-man-server.vercel.app/jwt", {
+          method: "POST",
+          headers: {
+            "content-type": "application/json",
+          },
+          body: JSON.stringify(currentUser),
+        })
+          .then((res) => res.json())
+          .then((data) => {
+            localStorage.setItem("genius-token", data.token);
+            navigate("/");
+          });
       })
       .catch(e => {
         
@@ -60,6 +71,10 @@ const Login = () => {
   };
     return (
       <section className="bg-gray-50 min-h-screen flex items-center justify-center">
+         <Helmet>
+
+<title>Login</title>
+</Helmet>
       <div className="bg-gray-100 flex rounded-2xl shadow-lg max-w-3xl p-5 items-center">
         <div className=" px-8 md:px-16">
           <h2 className="font-bold text-2xl text-[#002D74]">Login</h2>
