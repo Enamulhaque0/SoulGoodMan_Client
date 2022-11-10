@@ -1,8 +1,10 @@
-import React from 'react';
+import React, { useState } from 'react';
+import Modal from './Modal/Modal';
 
 
 
 const ReviewCard = ({review,handleDelete}) => {
+  const [modalData,setModalData]=useState()
 
   const {img ,name,reviewText,_id } =review
 
@@ -11,6 +13,11 @@ const ReviewCard = ({review,handleDelete}) => {
       
      
      <>
+
+
+
+
+
 
 
      
@@ -26,10 +33,15 @@ const ReviewCard = ({review,handleDelete}) => {
       </p>
       <div className='flex justify-between'>
       <button onClick={()=>handleDelete(_id)} type="button" className=" inline-block px-6 py-2.5 bg-red-600 text-white font-medium text-xs leading-tight uppercase rounded shadow-md hover:bg-red-700 hover:shadow-lg focus:bg-red-900 focus:shadow-lg focus:outline-none focus:ring-0 active:bg-blue-800 active:shadow-lg transition duration-150 ease-in-out">Delete</button>
-      <button type="button" className=" inline-block px-9 py-2.5 bg-blue-600 text-white font-medium text-xs leading-tight uppercase rounded shadow-md hover:bg-blue-700 hover:shadow-lg focus:bg-blue-700 focus:shadow-lg focus:outline-none focus:ring-0 active:bg-blue-800 active:shadow-lg transition duration-150 ease-in-out">Edit</button>
+      
+      <label onClick={()=>setModalData(review)}  htmlFor="my-modal-3" className=" inline-block px-9 py-2.5 bg-blue-600 text-white font-medium text-xs leading-tight uppercase rounded shadow-md hover:bg-blue-700 hover:shadow-lg focus:bg-blue-700 focus:shadow-lg focus:outline-none focus:ring-0 active:bg-blue-800 active:shadow-lg transition duration-150 ease-in-out">Edit</label>
       </div>
     </div>
   </div>
+ {
+
+  modalData &&  <Modal modalData={modalData} setModalData={setModalData}></Modal>
+ }
 </div>
      
      

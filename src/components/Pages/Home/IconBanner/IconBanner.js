@@ -11,15 +11,15 @@ const IconBanner = () => {
 	
 	<div className="container mx-auto grid justify-center gap-4 sm:grid-cols-2 lg:grid-cols-3 ">
 		<div className="flex flex-col items-center p-4">
-			<img src={money} alt="" srcset="" />
+			<img src={money} alt="" srcSet="" />
 			
 		</div>
 		<div className="flex flex-col items-center p-4">
-		<img src={Law} alt="" srcset="" />
+		<img src={Law} alt="" srcSet="" />
 			
 		</div>
 		<div className="flex flex-col items-center p-4">
-		<img src={compliment} alt="" srcset="" />
+		<img src={compliment} alt="" srcSet="" />
 			
 		</div>
 		
