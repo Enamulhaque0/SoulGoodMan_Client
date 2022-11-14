@@ -17,7 +17,7 @@ const Register = () => {
   const [toggle, setToggle] = useState(false);
   const navigate = useNavigate();
 
-  const location = useLocation();
+  
 
   const toggleHandle = () => {
     setToggle(!toggle);
@@ -27,8 +27,21 @@ const Register = () => {
     LoginWithGoogle(googleProvider)
       .then((result) => {
         const user = result.user;
-        navigate("/");
-        toast.success("successfully Login");
+        const currentUser = {
+          email: user.email,
+        };
+        fetch("https://soul-good-man-server-enamulhaque0.vercel.app/jwt", {
+          method: "POST",
+          headers: {
+            "content-type": "application/json",
+          },
+          body: JSON.stringify(currentUser),
+        })
+          .then((res) => res.json())
+          .then((data) => {
+            localStorage.setItem("soul-token", data.token);
+            navigate("/");
+          });
       })
       .catch((error) => toast.error(error.message));
   };
@@ -45,17 +58,21 @@ const Register = () => {
       .then((result) => {
         const user = result.user;
 
-        form.reset();
-
-        toast("Welcome to Soul GoodMan", {
-          icon: "👏",
-          style: {
-            borderRadius: "10px",
-            background: "#333",
-            color: "#fff",
+ const currentUser = {
+          email: user.email,
+        };
+        fetch("https://soul-good-man-server-enamulhaque0.vercel.app/jwt", {
+          method: "POST",
+          headers: {
+            "content-type": "application/json",
           },
-        });
-        navigate("/");
+          body: JSON.stringify(currentUser),
+        })
+          .then((res) => res.json())
+          .then((data) => {
+            localStorage.setItem("soul-token", data.token);
+            navigate("/");
+          });
       })
 
       .catch((e) => toast.error(e.message));

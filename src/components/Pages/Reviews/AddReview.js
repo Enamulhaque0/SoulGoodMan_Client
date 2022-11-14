@@ -24,7 +24,7 @@ const AddReview = ({ service }) => {
       img:service.img
     };
 
-    fetch("https://soul-good-man-server.vercel.app/review", {
+    fetch("https://soul-good-man-server-enamulhaque0.vercel.app/review", {
       method:"POST",
       headers:{
         "content-type": "application/json"
@@ -34,7 +34,6 @@ const AddReview = ({ service }) => {
     })
     .then((res) => res.json())
       .then((data) => {
-        console.log(data);
         if (data.acknowledged) {
           toast.success("Review Added");
           form.reset();

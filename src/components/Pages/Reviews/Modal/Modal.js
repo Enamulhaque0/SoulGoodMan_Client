@@ -1,7 +1,6 @@
 import React from 'react';
 
 const Modal = ({modalData,setModalData,handleData,handleUpdate}) => {
-  console.log(modalData._id)
 
     const {name,reviewText,_id}=modalData
     return (

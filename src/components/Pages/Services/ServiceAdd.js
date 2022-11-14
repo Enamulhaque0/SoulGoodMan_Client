@@ -28,7 +28,7 @@ const ServiceAdd = () => {
     };
     
 
-    fetch("https://soul-good-man-server.vercel.app/services",{
+    fetch("https://soul-good-man-server-enamulhaque0.vercel.app/services",{
       method:"POST",
       headers:{
 
@@ -40,7 +40,6 @@ const ServiceAdd = () => {
     })
     .then((res) => res.json())
       .then((data) => {
-        console.log(data);
         if (data.acknowledged) {
           toast.success("Service Added");
           form.reset();

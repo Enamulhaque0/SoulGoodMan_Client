@@ -22,7 +22,7 @@ const router = createBrowserRouter([
       {
         path: "/",
         element: <Home></Home>,
-        loader: ()=> fetch("https://soul-good-man-server.vercel.app/")
+        loader: ()=> fetch("https://soul-good-man-server-enamulhaque0.vercel.app/")
       },
       {
         path: "login",
@@ -35,7 +35,7 @@ const router = createBrowserRouter([
       {
         path: "services",
         element: <Services></Services>,
-        loader: ()=> fetch("https://soul-good-man-server.vercel.app/services")
+        loader: ()=> fetch("https://soul-good-man-server-enamulhaque0.vercel.app/services")
       },
       {
         path: "service-add",
@@ -44,7 +44,7 @@ const router = createBrowserRouter([
       {
         path: "/serviceDetails/:id",
         element: <ServiceDetails></ServiceDetails>,
-        loader: ({params})=> fetch(`https://soul-good-man-server.vercel.app/serviceDetails/${params.id}`)
+        loader: ({params})=> fetch(`https://soul-good-man-server-enamulhaque0.vercel.app/serviceDetails/${params.id}`)
       },
       {
         path: "reviews",

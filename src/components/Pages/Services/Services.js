@@ -6,7 +6,6 @@ import ServiceCard from './ServiceCard';
 const Services = () => {
     const  allServices= useLoaderData()
     const Services = [...allServices].sort((a, b) => b.sort - a.sort);
-    console.log(Services);
   
 
     return (

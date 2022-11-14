@@ -23,10 +23,10 @@ const MyReviews = () => {
   };
 
   useEffect(() => {
-    fetch(`https://soul-good-man-server.vercel.app/reviews?email=${user?.email}`,{
+    fetch(`https://soul-good-man-server-enamulhaque0.vercel.app/reviews?email=${user?.email}`,{
       headers: {
 
-        authorization: `Bearer ${localStorage.getItem('genius-token')}`
+        authorization: `Bearer ${localStorage.getItem('soul-token')}`
     }
     })
     .then((res) => {
@@ -43,8 +43,9 @@ const MyReviews = () => {
       "Are you sure, you want to delete this review"
     );
     if (proceed) {
-      fetch(`https://soul-good-man-server.vercel.app/reviews/${_id}`, {
+      fetch(`https://soul-good-man-server-enamulhaque0.vercel.app/reviews/${_id}`, {
         method: "DELETE",
+        
       })
         .then((res) => res.json())
         .then((data) => {
@@ -58,10 +59,11 @@ const MyReviews = () => {
   };
 
   const handleUpdate = (id) => {
-    fetch(`https://soul-good-man-server.vercel.app/reviews/${id}`, {
+    fetch(`https://soul-good-man-server-enamulhaque0.vercel.app/reviews/${id}`, {
       method: "PATCH",
       headers: {
         "content-type": "application/json",
+       
         
       },
       body: JSON.stringify({ reviewText: data }),

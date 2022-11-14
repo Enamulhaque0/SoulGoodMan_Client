@@ -15,7 +15,6 @@ const auth = getAuth(app);
 
 const AuthProvider = ({ children }) => {
   const [user, setUser] = useState();
-  // console.log(user);
   const [loading, setLoding] = useState(true);
 
   const LoginWithGoogle = (googleProvider) => {
@@ -38,6 +37,9 @@ const AuthProvider = ({ children }) => {
   };
   
   const logOut = () => {
+    setLoding(true);
+
+    localStorage.removeItem('soul-token');
     return signOut(auth);
   };
 

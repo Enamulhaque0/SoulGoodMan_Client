@@ -9,12 +9,11 @@ import { Helmet } from "react-helmet";
 const ServiceDetails = () => {
   const { user } = useContext(AuthContext);
   const service = useLoaderData();
-  console.log(service.name);
   const [reviews, setReviews] = useState([]);
   
 
   useEffect(() => {
-    fetch(`https://soul-good-man-server.vercel.app/review?name=${service.name}`)
+    fetch(`https://soul-good-man-server-enamulhaque0.vercel.app/review?name=${service.name}`)
       .then((res) => res.json())
       .then((data) => setReviews(data));
   }, [service.name,reviews]);
