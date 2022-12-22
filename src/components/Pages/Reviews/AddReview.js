@@ -17,22 +17,21 @@ const AddReview = ({ service }) => {
     };
 
     const review = {
-      email:userInfo.email,
+      email: userInfo.email,
       userInfo: userInfo,
-      name:service.name,
+      name: service.name,
       reviewText: reviewText,
-      img:service.img
+      img: service.img,
     };
 
     fetch("https://soul-good-man-server-enamulhaque0.vercel.app/review", {
-      method:"POST",
-      headers:{
-        "content-type": "application/json"
+      method: "POST",
+      headers: {
+        "content-type": "application/json",
       },
-      body:JSON.stringify(review)
-
+      body: JSON.stringify(review),
     })
-    .then((res) => res.json())
+      .then((res) => res.json())
       .then((data) => {
         if (data.acknowledged) {
           toast.success("Review Added");
@@ -40,8 +39,6 @@ const AddReview = ({ service }) => {
         }
       })
       .catch((er) => {});
-
-    
   };
   return (
     <>
@@ -128,15 +125,15 @@ const AddReview = ({ service }) => {
           <form onSubmit={handleReview}>
             <div className="flex flex-col w-full">
               <textarea
-              required
+                required
                 name="Review"
                 rows="3"
                 placeholder="Add a Review"
-                className="p-4 rounded-md resize-none dark:text-gray-100 dark:bg-gray-900"
+                className="p-4 border-4 rounded-md resize-none dark:text-gray-100 dark:bg-gray-900"
               ></textarea>
               <button
                 type="submit"
-                className="py-4 my-8 font-semibold rounded-md dark:text-gray-900 dark:bg-green-400"
+                className="py-4 my-8 font-semibold border-4 rounded-md dark:text-gray-900 dark:bg-green-400"
               >
                 Leave feedback
               </button>
