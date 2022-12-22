@@ -3,7 +3,7 @@ import Logo from "../../../../assest/legal.png";
 
 const Footer = () => {
     return (
-        <footer className="flex flex-col items-center justify-between p-6 bg-green-400   sm:flex-row">
+        <footer className="flex flex-col items-center justify-between p-6 bg-green-700   sm:flex-row">
        <img src={Logo} alt=""  />
     
         <p className="text-sm text-black dark:text-gray-300">© Copyright 2022. All Rights Reserved.</p>

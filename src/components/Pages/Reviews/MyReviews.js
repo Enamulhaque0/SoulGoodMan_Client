@@ -58,7 +58,7 @@ const MyReviews = () => {
     }
   };
 
-  const handleUpdate = (id) => {
+  const handleUpdate = (id,setModalData) => {
     fetch(`https://soul-good-man-server-enamulhaque0.vercel.app/reviews/${id}`, {
       method: "PATCH",
       headers: {
@@ -72,6 +72,7 @@ const MyReviews = () => {
       .then((data) => {
         if (data.modifiedCount) {
           setRefresh(!refresh)
+          setModalData(null)
         }
       });
   };

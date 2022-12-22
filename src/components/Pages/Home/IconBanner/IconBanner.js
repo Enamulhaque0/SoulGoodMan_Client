@@ -9,7 +9,7 @@ const IconBanner = () => {
 
 			<h1 className='text-3xl lg:text-4xl my-24 text-center font-bold'>Why Engage With Me For Your Legal Services?</h1>
 	
-	<div className="container mx-auto grid justify-center gap-4 sm:grid-cols-2 lg:grid-cols-3 ">
+	<div className="container mx-auto grid justify-center gap-1 sm:grid-cols-2 lg:grid-cols-3 ">
 		<div className="flex flex-col items-center p-4">
 			<img src={money} alt="" srcSet="" />
 			
