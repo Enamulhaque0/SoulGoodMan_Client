@@ -50,9 +50,8 @@ const AuthProvider = ({ children }) => {
       setLoding(false);
       
     });
-    return () => {
-      return unsubscribe();
-    };
+    return () => unsubscribe();
+    
   }, []);
 
   const authInfo = {
